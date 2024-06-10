@@ -46,15 +46,13 @@ const Display = () => {
         </button>
       </form>
       {/* <p>{flag ? "Full Name:"+{user.firstname}+{user.secondname} : ""}</p> */}
-      <p>
-        {flag
-          ? user.firstname !== ""
-            ? user.secondname !== ""
-              ? "Full Name: " + user.firstname + " " + user.secondname
-              : ""
+      {flag
+        ? user.firstname !== ""
+          ? user.secondname !== ""
+            ? "Full Name: " + user.firstname + " " + user.secondname
             : ""
-          : ""}
-      </p>
+          : ""
+        : ""}
     </div>
   );
 };
