@@ -17,8 +17,7 @@ const Display = () => {
     e.preventDefault();
     setFlag(!flag);
   };
-  console.log(flag);
-  console.log(user);
+
   return (
     <div>
       <h1>Full Name Display</h1>
@@ -48,7 +47,13 @@ const Display = () => {
       </form>
       {/* <p>{flag ? "Full Name:"+{user.firstname}+{user.secondname} : ""}</p> */}
       <p>
-        {flag ? "Full Name: " + user.firstname + " " + user.secondname : ""}
+        {flag
+          ? user.firstname !== ""
+            ? user.secondname !== ""
+              ? "Full Name: " + user.firstname + " " + user.secondname
+              : ""
+            : ""
+          : ""}
       </p>
     </div>
   );
