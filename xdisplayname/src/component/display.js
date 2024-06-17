@@ -7,7 +7,8 @@ function Display() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setFullName(`${firstName} ${lastName}`);
+    let st = firstName + " " + lastName;
+    setFullName(st);
   };
   return (
     <div>
@@ -37,7 +38,7 @@ function Display() {
         </div>
         <button type="submit">Submit</button>
       </form>
-      {fullName && <p>Full Name : {fullName}</p>}
+      {fullName && <p>Full Name: {fullName}</p>}
     </div>
   );
 }
