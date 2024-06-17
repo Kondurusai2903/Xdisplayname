@@ -11,7 +11,7 @@ function Display() {
   };
   return (
     <div>
-      <h1>Enter your full name</h1>
+      <h1>Full Name Display</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="first-name">First Name:</label>
@@ -37,7 +37,7 @@ function Display() {
         </div>
         <button type="submit">Submit</button>
       </form>
-      {fullName && <p>Your full name is: {fullName}</p>}
+      {fullName && <p>Full Name : {fullName}</p>}
     </div>
   );
 }
