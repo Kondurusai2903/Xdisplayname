@@ -1,60 +1,45 @@
 import React, { useState } from "react";
 
-const Display = () => {
-  const [user, setUser] = useState({
-    firstname: "",
-    secondname: "",
-  });
-  const [flag, setFlag] = useState(false);
-  const handlechange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setUser((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
-  const handlesubmit = (e) => {
-    e.preventDefault();
-    setFlag(!flag);
-  };
+function Display() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [fullName, setFullName] = useState("");
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setFullName(`${firstName} ${lastName}`);
+  };
   return (
     <div>
-      <h1>Full Name Display</h1>
-      <form>
+      <h1>Enter your full name</h1>
+      <form onSubmit={handleSubmit}>
         <div>
-          <label for="firstname">First Name:</label>
+          <label htmlFor="first-name">First Name:</label>
           <input
             type="text"
-            name="firstname"
-            // value={e.target.value}
-            onChange={handlechange}
+            id="first-name"
+            name="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
             required
           />
         </div>
         <div>
-          <label for="lastname">Last Name:</label>
+          <label htmlFor="last-name">Last Name:</label>
           <input
             type="text"
-            name="secondname"
-            onChange={handlechange}
+            id="last-name"
+            name="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
             required
           />
         </div>
-        <button type="submit" onClick={handlesubmit}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
-      {/* <p>{flag ? "Full Name:"+{user.firstname}+{user.secondname} : ""}</p> */}
-      {flag
-        ? user.firstname !== ""
-          ? user.secondname !== ""
-            ? "Full Name: " + user.firstname + " " + user.secondname
-            : ""
-          : ""
-        : ""}
+      {fullName && <p>Your full name is: {fullName}</p>}
     </div>
   );
-};
+}
 
 export default Display;
